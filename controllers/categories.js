@@ -1,3 +1,5 @@
+import connection from "../data/db";
+
 async function index(request, response) {
     const querySelect = `
         SELECT name, slug 
