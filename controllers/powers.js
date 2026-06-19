@@ -1,8 +1,10 @@
+
+
 async function index(request, response) {
     const querySelect = `
-        SELECT name, slug 
-        FROM categories`
-        ;
+    SELECT name power_type, id
+    FROM powers
+    `;
 
     try {
         const results = await connection.execute(querySelect);
@@ -28,16 +30,16 @@ async function index(request, response) {
 }
 
 async function show(request, response) {
-    const { categoriesSlug } = request.params;
+    const { powerId } = request.params;
     const querySelect = `
-            SELECT name, slug 
-            FROM categories 
-            WHERE slug = ?
+            SELECT name, id, power_type
+            FROM powers 
+            WHERE id = ?
             LIMIT 1
         `;
 
     try {
-        const [results] = await connection.execute(querySelect, [categoriesSlug]);
+        const [results] = await connection.execute(querySelect, [powerId]);
 
         if (results.length === 0) {
             return response.status(404)
@@ -60,9 +62,9 @@ async function show(request, response) {
     }
 }
 
-const categoriesController = {
+const powersController = {
     index,
     show
 }
 
-export default categoriesController;
+export default powersController;
