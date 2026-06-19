@@ -1,9 +1,9 @@
-export function validateSlug(value) {
-    if (typeof value !== "string") {
+export function validateSlug(slug) {
+    if (typeof slug !== "string") {
         return null;
     }
 
-    const trimmedValue = value.trim();
+    const trimmedValue = slug.trim();
 
     if (trimmedValue.length === 0) {
         return null;
