@@ -1,8 +1,8 @@
 import express from "express";
-import categoriesRouter from "./routers/categories";
-import powersRouter from "./routers/powers";
-import notFound from "./middlewares/notFound";
-import errorHandler from "./middlewares/errorHandler";
+import categoriesRouter from "./routers/categories.js";
+import powersRouter from "./routers/powers.js";
+import notFound from "./middlewares/notFound.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 const port = process.env.SERVER_PORT || 3000;
 

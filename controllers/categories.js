@@ -1,4 +1,4 @@
-import connection from "../data/db";
+import connection from "../data/db.js";
 
 async function index(request, response) {
     const querySelect = `
@@ -7,7 +7,7 @@ async function index(request, response) {
         ;
 
     try {
-        const results = await connection.execute(querySelect);
+        const [results] = await connection.execute(querySelect);
         if (results.length === 0) {
             return response.status(404)
                 .json({
