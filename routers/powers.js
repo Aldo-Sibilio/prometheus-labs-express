@@ -6,6 +6,6 @@ const powersRouter = express.Router();
 
 powersRouter.get("/", powersController.index);
 
-powersRouter.show("/powerId", powersController.index);
+powersRouter.post("/powerId", powersController.index);
 
 export default powersRouter;
