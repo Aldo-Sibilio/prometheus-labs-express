@@ -1,27 +1,7 @@
 -- ================================================================
 -- PROMETHEUS SUPPLEMENTS — FULL DATABASE SEED
 -- 2026-06-19
--- Schema: approved(first).sql
--- ================================================================
--- to check:
--- DATA NOTES:
---   • XVision slug kept as "xvisioin" (matches source image paths).
---   • "Chaos Shot Box" removed from Starlight's ingredients (JSON error);
---     Starlight is linked to the chaos-shot-box category instead.
---   • ChargeBack image URLs corrected (source JSON had VoiceTune paths).
---   • ChargeBack categories corrected (source JSON had VoiceTune values).
---   • "psysical" typos normalised to "physical".
---   • Power name typo "Alchoholic" corrected to "Alcoholic".
---   • OVERDRIVE / SHARPEDGE bundle categories added to their member
---     products even though the dailySUPer.json omits them — consistent
---     with how Friday Night Bundle / Chaos Shot Box are handled.
---
--- SCHEMA NOTE:
---   The constraint `order_products_id_foreign` binds order_products.id
---   to orders.id, which prevents inserting more line-items than orders.
---   This appears to be a schema authoring error (should reference
---   order_products.order_id). FK checks are disabled for import so
---   sample data can be seeded correctly.
+-- Schema: schema-00.sql
 -- ================================================================
 
 -- ----------------------------------------------------------------
