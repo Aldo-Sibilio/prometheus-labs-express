@@ -1,4 +1,5 @@
 import connection from "../data/db.js";
+import validateNumber from "../utils_js/validation/validateNumber.js"
 
 async function index(request, response) {
     const querySelect = `
@@ -31,7 +32,8 @@ async function index(request, response) {
 
 async function show(request, response) {
     const { powerId } = request.params;
-    console.log(powerId);
+    const validatedId = validateNumber(powerId);
+    console.log("id val: ", powerId);
     
     const querySelect = `
             SELECT name, id, power_type

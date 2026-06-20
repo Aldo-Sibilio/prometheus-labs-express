@@ -1,4 +1,5 @@
 import connection from "../data/db.js";
+import { validateSlug } from "../utils_js/validation/validateSlug.js";
 
 async function index(request, response) {
     const querySelect = `
@@ -31,7 +32,8 @@ async function index(request, response) {
 
 async function show(request, response) {
     const { categorySlug } = request.params;
-    console.log("slugcat: ", categorySlug);
+    const validatedCatSlug = validateSlug(categorySlug);
+    console.log("slugcat val: ", validatedCatSlug);
     
     const querySelect = `
             SELECT name, slug 
