@@ -1,4 +1,4 @@
-import connection from "../data/db";
+import connection from "../data/db.js";
 
 async function index(request, response) {
     const querySelect = `
