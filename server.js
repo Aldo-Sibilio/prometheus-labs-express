@@ -30,4 +30,4 @@ app.listen(port, (error) => {
         return;
     }
     console.log('server in ascolto a questa porta: ', port);
-})
+});
