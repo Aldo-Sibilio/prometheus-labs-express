@@ -5,7 +5,7 @@ import queries from "../utils_js/queries/queries.js";
 async function index(request, response) {
 
     try {
-        const [results] = await connection.execute(querySelectAllCategories);
+        const [results] = await connection.execute(queries.querySelectAllCategories);
         if (results.length === 0) {
             return response.status(404)
                 .json({
@@ -33,7 +33,7 @@ async function show(request, response) {
     console.log("slugcat val: ", validatedCatSlug);
 
     try {
-        const [results] = await connection.execute(querySelectCategoriesBySlug, [categorySlug]);
+        const [results] = await connection.execute(queries.querySelectCategoriesBySlug, [categorySlug]);
 
         if (results.length === 0) {
             return response.status(404)

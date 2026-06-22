@@ -5,7 +5,7 @@ import queries from "../utils_js/queries/queries.js";
 async function index(request, response) {
 
     try {
-        const [results] = await connection.execute(querySelectAllPowers);
+        const [results] = await connection.execute(queries.querySelectAllPowers);
         if (results.length === 0) {
             return response.status(404)
                 .json({
@@ -33,7 +33,7 @@ async function show(request, response) {
     console.log("id val: ", powerId);
 
     try {
-        const [results] = await connection.execute(querySelectPowerById, [powerId]);
+        const [results] = await connection.execute(queries.querySelectPowerById, [powerId]);
 
         if (results.length === 0) {
             return response.status(404)

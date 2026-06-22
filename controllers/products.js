@@ -5,7 +5,7 @@ import queries from "../utils_js/queries/queries.js";
 async function index(request, response) {
     // per ora la query è una stringa di placeholder, da fixare quando abbiamo real db connection
     try {
-        const [rows] = await connection.execute(querySelectAllProducts);
+        const [rows] = await connection.execute(queries.querySelectAllProducts);
         if (!rows || rows.length === 0) {
             return response.status(404)
                 .json({
@@ -35,7 +35,7 @@ async function show(request, response) {
     console.log('lo slug del prodotto:', realSlug); // riga per check funzionamento da console
 
     try {
-        const [ rows ] = await connection.execute(querySelectProductBySlug, [realSlug]);
+        const [ rows ] = await connection.execute(queries.querySelectProductBySlug, [realSlug]);
 
         if (!rows || rows.length === 0) {
             return response.status(404)
